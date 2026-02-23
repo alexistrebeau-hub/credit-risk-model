@@ -93,11 +93,9 @@ Python • Pandas • NumPy • Scikit-Learn • Matplotlib • VS Code • Git/
 
 ---
 
-
-````markdown
 ## Repository Structure
 
-```
+```markdown
 credit-risk-model/
 │
 ├── data/
