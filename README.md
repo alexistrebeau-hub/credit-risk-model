@@ -1,50 +1,70 @@
-# Credit Risk Modeling Project
+# Credit Risk Modeling — Loan Default Prediction
 
-## Overview
-This project builds a machine learning model to predict loan default risk using borrower financial and demographic data.
+## Executive Summary
+This project develops an interpretable machine learning model to estimate borrower default risk using financial and demographic characteristics.
 
-The objective is to simulate how financial institutions evaluate lending risk and identify key drivers of default.
+The objective is to replicate how banks and lending institutions evaluate credit applications, quantify default probability, and identify the primary drivers of lending risk.
+
+A logistic regression framework was selected to prioritize **model interpretability**, aligning with real-world regulatory and risk-management requirements in banking.
 
 ---
 
 ## Dataset
-German Credit Dataset (UCI / Kaggle)
+**German Credit Dataset (UCI / Kaggle)**
 
-- 1,000 borrowers
-- Financial & demographic variables
-- Binary default outcome (Good / Bad credit)
+- 1,000 loan applicants
+- Financial, behavioral, and demographic variables
+- Binary outcome: **Good vs Bad Credit Risk**
 
 ---
 
-## Methodology
-- Data cleaning and preprocessing
-- One-hot encoding of categorical variables
-- Feature scaling
-- Logistic Regression modeling
-- ROC Curve evaluation
-- Threshold optimization using Youden's J statistic
-- Odds ratio interpretation
+## Modeling Approach
+
+### Data Preparation
+- Removed non-informative identifiers
+- Handled missing account information
+- One-hot encoded categorical variables
+- Standardized numerical features
+
+### Model
+- Logistic Regression (baseline credit scoring model)
+- Train/Test Split (80/20)
+- Pipeline-based preprocessing to prevent data leakage
+
+### Evaluation
+- ROC Curve & AUC analysis
+- Confusion Matrix evaluation
+- Decision threshold optimization using **Youden’s J Statistic**
+- Odds ratio interpretation for business explainability
 
 ---
 
 ## Model Performance
-- ROC-AUC: **0.63**
-- Optimized classification threshold improved detection of risky borrowers while maintaining approval balance.
+- **ROC–AUC:** 0.63  
+- Optimized probability threshold improved detection of high-risk borrowers while maintaining approval balance.
+
+This reflects realistic performance for small-tabular credit datasets and demonstrates trade-offs between approval rate and default risk.
 
 ---
 
 ## Key Risk Drivers
 
-### Default Risk Increasing Factors
-- Education loans (+85% default odds)
-- Low savings balances (+60%)
-- Longer loan duration (+59%)
-- Rental housing status (+25%)
+### Factors Increasing Default Risk
+| Variable | Impact on Default Odds |
+|-----------|----------------|
+| Education Loans | +85% |
+| Low Savings Balance | +60% |
+| Longer Loan Duration | +59% |
+| Rental Housing | +25% |
 
-### Risk Reducing Factors
-- Rich savings balances (-47%)
-- Home ownership (-27%)
-- Consumer purchase loans (-36%)
+### Factors Reducing Default Risk
+| Variable | Impact on Default Odds |
+|-----------|----------------|
+| High Savings Balance | −47% |
+| Home Ownership | −27% |
+| Consumer Purchase Loans | −36% |
+
+These results illustrate how borrower liquidity and loan purpose materially influence repayment risk.
 
 ---
 
@@ -53,17 +73,40 @@ German Credit Dataset (UCI / Kaggle)
 ### ROC Curve
 ![ROC Curve](images/roc_curve.png)
 
-### Risk Drivers
+### Model Risk Drivers (Odds Ratios)
 ![Risk Drivers](images/risk_drivers_odds.png)
 
 ---
 
-## Tools Used
-Python • Pandas • Scikit-Learn • Matplotlib • VS Code
+## Business Interpretation
+This model demonstrates a simplified **credit scoring workflow** used in retail banking:
+
+- Estimate probability of borrower default
+- Adjust approval thresholds based on risk tolerance
+- Identify financially meaningful risk indicators
+- Support explainable lending decisions
+
+---
+
+## Tools & Technologies
+Python • Pandas • NumPy • Scikit-Learn • Matplotlib • VS Code • Git/GitHub
+
+---
+
+## Repository Structure
+credit-risk-model/
+│
+├── notebooks/
+│   └── credit_risk_model.ipynb
+├── images/
+│   ├── roc_curve.png
+│   └── risk_drivers_odds.png
+└── README.md
 
 ---
 
 ## Author
-Alexis Trebeau  
-UNC Chapel Hill — Statistics & Data Science
-
+**Alexis Trebeau**  
+University of North Carolina at Chapel Hill  
+Statistics & Data Science | Business Minor  
+Aspiring Risk / Financial Data Analyst
