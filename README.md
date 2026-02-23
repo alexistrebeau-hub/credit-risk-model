@@ -93,15 +93,26 @@ Python • Pandas • NumPy • Scikit-Learn • Matplotlib • VS Code • Git/
 
 ---
 
+
+````markdown
 ## Repository Structure
+
+```
 credit-risk-model/
+│
+├── data/
+│   └── german_credit_data.csv
 │
 ├── notebooks/
 │   └── credit_risk_model.ipynb
+│
 ├── images/
 │   ├── roc_curve.png
 │   └── risk_drivers_odds.png
+│
+├── requirements.txt
 └── README.md
+```
 
 ---
 
